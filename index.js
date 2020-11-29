@@ -27,6 +27,10 @@ const books = [
     },
 ]
 
+app.get('/', (req, res) => {
+    res.json({'message': "Accueil de l'API")
+})
+
 app.get('/books/', (req, res) => {
     res.json(books)
 })
