@@ -59,7 +59,7 @@ const books = [
  * Books CRUD
  */
 app.get('/', (req, res) => {
-    res.json({'message': "Home, nothing interesting here.")
+    res.json({'message': "Home, nothing interesting here."})
 })
 
 app.get('/books/', (req, res) => {
