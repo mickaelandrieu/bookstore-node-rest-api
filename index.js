@@ -1,4 +1,5 @@
-const express = require('express')
+const express = require('express');
+const moment = require('moment');
 const app = express()
 const port = process.env.PORT || 3000;
 app.use(express.json())
@@ -40,7 +41,7 @@ const books = [
         "author": "Elise",
         "isbn": "0-7975-8110-4",
         "availability": false,
-        "return_date": "01/01/2028"
+        "return_date": moment()
     },
     {
         "title": "Book 3",
@@ -153,9 +154,11 @@ app.post('/borrow/:mail/:isbn', (req, res) => {
     user.books.push(book.isbn)
     book.availability = false
     book.return_date = moment().add(14, 'days');
+
+    return res.json(book)
 })
 
-app.post('/borrow/:mail/:isbn', (req, res) => {
+app.post('/bring-back/:mail/:isbn', (req, res) => {
     const mail = req.params.mail
     const isbn = req.params.isbn
 
@@ -165,6 +168,8 @@ app.post('/borrow/:mail/:isbn', (req, res) => {
     user.books.splice(user.books.indexOf(book), 1)
     book.availability = true
     book.return_date = null;
+
+    return res.json(user)
 })
 
 app.listen(port, () => {
