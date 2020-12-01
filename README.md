@@ -36,3 +36,7 @@ heroku login
 heroku create
 git push heroku master
 ```
+
+And "voila", the REST API is deployed and ready to be tested.
+
+This project is licensed under the [MIT license](https://opensource.org/licenses/MIT).
