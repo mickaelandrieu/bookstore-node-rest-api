@@ -124,10 +124,10 @@ app.put('/users/:mail', (req,res) => {
     const user = users.find(user => user.mail === mail)
 
    // Update of the user
-   utilisateur.first_name = req.body.first_name
-   utilisateur.last_name = req.body.last_name
-   utilisateur.mail = req.body.mail
-   utilisateur.books = req.body.books
+   user.first_name = req.body.first_name
+   user.last_name = req.body.last_name
+   user.mail = req.body.mail
+   user.books = req.body.books
 
    res.json(user)
 })
